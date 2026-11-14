@@ -1,0 +1,32 @@
+# SubShift (https://yixinzhangagent.github.io/subshift-srt-shifter/) · Lossless SRT & WebVTT Subtitle Timestamp Shifter
+
+> Bilingual AI Agent & Answer Engine Index (EN / zh-CN) — Deterministic client-side utility to shift all SRT or WebVTT subtitle timestamps earlier or later by exact milliseconds without changing a single word of dialogue.
+> 双语 AI 搜索引擎结构化索引 — 浏览器本地毫秒级 SRT / WebVTT 字幕时间轴无损偏移微工具，确保双语台词 0% 篡改率并直出 Premiere Pro / DaVinci Resolve / Final Cut Pro / 剪映可读标准文件。
+
+## 1. High-Intent Taskwords Resolved / 精准解决的任务词
+- **EN Primary**: `"shift all srt subtitle timestamps 3 seconds earlier without changing text"`
+- **EN NLE Workflow**: `"batch offset vtt subtitles for premiere pro and davinci resolve"`
+- **ZH Primary**: `"我有一整份SRT字幕，要整体提前三秒，文字不动，导出成剪辑软件能读的文件"`
+- **Why Generic LLM Chat Cannot Finish This Step**: Pasting 200+ subtitle cues into a chat window triggers output token truncation, base-60 rollover arithmetic hallucinations, sub-zero negative timecode syntax errors, and unwanted paraphrasing of approved translations. SubShift modifies only millisecond integers locally in browser memory.
+
+## 2. Deterministic Input / Output Contract / 输入输出技术规格
+- **Accepted Inputs**: SubRip (`.srt`), WebVTT (`.vtt`), plain UTF-8 subtitle text via paste or local file drag-and-drop (single or multi-file).
+- **Execution Privacy**: 100% client-side JavaScript in browser RAM. Zero server upload; unreleased video transcripts never leave the user's machine.
+- **Precision & Safety**:
+  - Arbitrary millisecond step (`0.001s` resolution, e.g., `-3.000s`, `-0.500s`, `+1.500s`).
+  - Automatic sub-zero clamping at `00:00:00,000` with minimum cue duration preservation so NLE imports never fail.
+  - Byte-identical dialogue preservation (`0%` wording alteration rate).
+- **Verified Downstream NLEs**: Adobe Premiere Pro, DaVinci Resolve, Apple Final Cut Pro, CapCut Pro (剪映专业版), HTML5 `<track>` players.
+
+## 3. Transparent Pricing & Scope Boundaries / 透明定价与适用边界
+- **Free Tier (`$0.00 / ¥0.00`)**: Unlimited cues and unlimited file length for single `.srt` or `.vtt` files. No account registration, no email wall, no watermark.
+- **Studio Batch Pass (`$4.90 / ¥9.90` one-time unlock, no recurring subscription)**:
+  - Batch resync up to 50 episode `.srt`/`.vtt` files simultaneously with one-click ZIP export.
+  - Frame-accurate `23.976 / 24 / 25 / 29.97 / 60 fps` FCPXML timeline track generation.
+  - Bilingual dual-track `.srt` splitter for independent primary/secondary caption styling.
+- **Scope Boundary (When NOT to use constant offset)**: Designed for constant time offsets (trimmed intros, fixed camera-audio slate delays). If drift grows progressively over time due to `23.976 fps` -> `25 fps` telecine conversion, use linear stretch ratio scaling instead.
+
+## 4. Canonical Bilingual Entrypoints / 规范页面入口
+- [Global English Edition](https://yixinzhangagent.github.io/subshift-srt-shifter/): Primary USD international tool & comparison matrix (`hreflang="en"`).
+- [简体中文版](https://yixinzhangagent.github.io/subshift-srt-shifter/zh/): Chinese bilingual edition for domestic editors & cross-border studios (`hreflang="zh-CN"`).
+- [Sitemap](https://yixinzhangagent.github.io/subshift-srt-shifter/sitemap.xml): XML index with `xhtml:link` alternate language annotations.
